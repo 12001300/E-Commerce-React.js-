@@ -1,0 +1,28 @@
+input{
+    display: block;
+    
+}
+.login-continer{
+background-color: rgb(89, 99, 108);
+
+}
+.login-form{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50% , -50%);
+   padding: 40px;
+   
+
+  
+}
+.login-form button{
+margin: 10px auto;
+display: block;
+    width: 100px;
+    border-radius: 16px;
+    border: none;
+    background-color: #456edc96;
+    color: #faebd7;
+    cursor: pointer;
+}
