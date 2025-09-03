@@ -10,6 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
 import { useContext,createContext } from 'react';
+import { Authentication } from '../context/Authentication';
 import Home from '../Pages/Home';
 import { useSearch } from '../context/SearchContext';
 
@@ -24,7 +25,7 @@ export default function Navbarr() {
 // logedin)
   
   const {searchTerm,setSearchTerm}=useSearch()
-
+  const {dispach,state}=useContext(Authentication)
 
   return (
     
@@ -48,7 +49,8 @@ export default function Navbarr() {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link ><Link  className="linkstyle"to="/">Home</Link></Nav.Link>
                   <Nav.Link ><Link className="linkstyle" to="/profile">profile</Link></Nav.Link>
-                  <Nav.Link ><Link  className="linkstyle"to="/login">log in</Link></Nav.Link>
+                  {state.logedin?<Nav.Link ><Link  className="linkstyle"to="/login" onClick={()=>dispach({type:"LOGOUT"})}>Logout </Link></Nav.Link>:
+                  <Nav.Link ><Link  className="linkstyle"to="/login">login</Link></Nav.Link>}
                 
                   
                   {/* <NavDropdown

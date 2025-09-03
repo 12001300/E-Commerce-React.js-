@@ -7,9 +7,12 @@ import Home from './Pages/Home';
 import { BrowserRouter,Link,Route,Router, Routes } from 'react-router-dom';
 import ProductDetails from './Pages/ProductDetails';
 import { SearchProvider } from './context/SearchContext';
+import { UserAuthentication } from './context/Authentication';
 function App() {
   return (
     <div className="App">
+      <UserAuthentication>
+
       <SearchProvider>
 
 <BrowserRouter>
@@ -25,6 +28,7 @@ function App() {
 
 </BrowserRouter>
  </SearchProvider>
+      </UserAuthentication>
     
      
      

@@ -2,19 +2,20 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import { useState ,useReducer} from 'react'
 import Alert from 'react-bootstrap/Alert';
-
+import { useNavigate } from 'react-router-dom';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { useContext } from 'react';
+import { Authentication } from '../context/Authentication';
 
 import "../CSS/Login.css"
 export default function Login() {
-  
+  const {LogIn,Logout,state,dispach,reducer}=useContext(Authentication)
 const[name,setName]=useState("")
 const[password,setPassword]=useState("")
 const[email,setEmail]=useState("")
 // const [logedin,setLogedin]=useState(false)
 
-
-
+const navigate=useNavigate()
 
 function validation(){
     if (name && password && email.includes("@")){
@@ -24,23 +25,35 @@ function validation(){
 }
     function handelsubmit(e){
       e.preventDefault()
-     
-        
+      
+      
       //  setLogedin(true)
-      const userInfo={userName:name,userPassword:password,userEmail:email,logedin:true}
-       localStorage.setItem("userInfo",JSON.stringify(userInfo))
+      dispach({type:"SET-DATA",payload:{  userName: name,
+            userPassword: password,
+            userEmail: email,
+            logedin: null}})
+       
+        dispach({type:"LOGIN",payload:{  userName: name,
+            userPassword: password,
+            userEmail: email,
+            logedin: true}})
+    
+    
+      
            setName("");
            setPassword("");
            setEmail("");
            
-            if (userInfo.logedin){
-                window.location="/"
-            }
            
+           
+           
+          }
+          if (state.logedin){
 
-    
-
-    }
+            navigate("/")
+          }
+          
+          console.log(state)
 
   return (
    
