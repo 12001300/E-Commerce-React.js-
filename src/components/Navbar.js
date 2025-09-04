@@ -13,6 +13,7 @@ import { useContext,createContext } from 'react';
 import { Authentication } from '../context/Authentication';
 import Home from '../Pages/Home';
 import { useSearch } from '../context/SearchContext';
+import { AddedItems } from '../context/AddedToCart';
 import Cart from '../Pages/Cart';
 
 
@@ -52,7 +53,7 @@ export default function Navbarr() {
                   <Nav.Link ><Link  className="linkstyle"to="/"><Cart/></Link></Nav.Link>
                   <Nav.Link ><Link  className="linkstyle"to="/">Home</Link></Nav.Link>
                   <Nav.Link ><Link className="linkstyle" to="/profile">profile</Link></Nav.Link>
-                  {state.logedin?<Nav.Link ><Link  className="linkstyle"to="/login" onClick={()=>dispach({type:"LOGOUT"})}>Logout </Link></Nav.Link>:
+                  {state.logedin?<Nav.Link ><Link  className="linkstyle"to="/login" onClick={()=>{dispach({type:"LOGOUT"}) }}>Logout </Link></Nav.Link>:
                   <Nav.Link ><Link  className="linkstyle"to="/login">login</Link></Nav.Link>}
                 
                   

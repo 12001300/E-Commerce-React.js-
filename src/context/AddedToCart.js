@@ -15,6 +15,8 @@ export function Addedprouducts({children}){
                 
             case "REMOVE-ITEM":
                 return cart.filter(Item=>Item.id !=action.payload)  
+            case "CLEAR-CART":
+                return []   
             default :
             return cart      
         }
