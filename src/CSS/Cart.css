@@ -1,0 +1,15 @@
+.collecter{
+color: red;
+    display: block;
+    position: absolute;
+    top: -13px
+}
+.collecter-amount{
+    position: absolute;
+        display: block;
+        top: -18px;
+      
+        margin: 3px;
+    
+}
+

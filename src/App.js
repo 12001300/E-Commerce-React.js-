@@ -8,9 +8,12 @@ import { BrowserRouter,Link,Route,Router, Routes } from 'react-router-dom';
 import ProductDetails from './Pages/ProductDetails';
 import { SearchProvider } from './context/SearchContext';
 import { UserAuthentication } from './context/Authentication';
+import { Addedprouducts } from './context/AddedToCart';
 function App() {
   return (
     <div className="App">
+      <Addedprouducts>
+
       <UserAuthentication>
 
       <SearchProvider>
@@ -29,6 +32,7 @@ function App() {
 </BrowserRouter>
  </SearchProvider>
       </UserAuthentication>
+      </Addedprouducts>
     
      
      

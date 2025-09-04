@@ -13,6 +13,7 @@ import { useContext,createContext } from 'react';
 import { Authentication } from '../context/Authentication';
 import Home from '../Pages/Home';
 import { useSearch } from '../context/SearchContext';
+import Cart from '../Pages/Cart';
 
 
 // let parseduserinfo=JSON.parse(localStorage.getItem("userInfo","logedin"));
@@ -47,6 +48,8 @@ export default function Navbarr() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+
+                  <Nav.Link ><Link  className="linkstyle"to="/"><Cart/></Link></Nav.Link>
                   <Nav.Link ><Link  className="linkstyle"to="/">Home</Link></Nav.Link>
                   <Nav.Link ><Link className="linkstyle" to="/profile">profile</Link></Nav.Link>
                   {state.logedin?<Nav.Link ><Link  className="linkstyle"to="/login" onClick={()=>dispach({type:"LOGOUT"})}>Logout </Link></Nav.Link>:
